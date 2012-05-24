@@ -1,0 +1,16 @@
+Source: gazebo
+Section: devel
+Priority: extra
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Nate Koenig <natekoenig@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), cmake, libogre-dev, libfreeimage-dev, libqt4-dev, libprotobuf-dev, libprotoc-dev, libtbb2, libxml2, libtinyxml-dev, libboost-all-dev
+Standards-Version: 3.9.2
+Homepage: http://gazebosim.org
+#Vcs-Git: git://git.debian.org/collab-maint/gazebo.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/gazebo.git;a=summary
+
+Package: gazebo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: 3D dynamics simulator for robotics
+ Open source robot simulator designed to accurately simulate complex robots and worlds.
