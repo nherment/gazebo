@@ -1,0 +1,59 @@
+<?xml version="1.0"?> 
+<gazebo version="1.0">
+  <world name="default">
+
+    <include filename="ground_plane.model"/>
+    <include filename="sun.light"/>
+
+    <model name="sphere" static="true">
+      <origin pose="2 0 0 0 0 0"/>
+      <link name="body">
+        <inertial mass="1.0">
+          <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+        </inertial>
+
+        <collision name="geom">
+          <geometry>
+            <sphere radius="1"/>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <sphere radius="1"/>
+          </geometry>
+          <material script="Gazebo/WoodPallet"/>
+        </visual>
+      </link>
+    </model>
+
+    <model name="camera_model" static="true">
+      <origin pose="0 0 0 0 0 0"/>
+      <link name="my_link">
+        <inertial mass="1.0">
+          <inertia ixx="1" ixy="0" ixz="0" 
+                   iyy="1" iyz="0" 
+                   izz="1"/>
+        </inertial>
+
+        <collision name="collision">
+          <geometry>
+            <box size="1 1 1"/>
+          </geometry>
+        </collision>
+
+        <sensor name="camera" type="depth" always_on="true" update_rate="10">
+          <camera>
+            <horizontal_fov angle="1.04719755"/>
+            <image width="640" height="480" format="R8G8B8"/>
+            <clip near=".1" far="20"/>
+            <save enabled="true" path="/tmp/camera"/>
+          </camera>
+          <plugin filename="libDepthCameraPlugin.so"
+            name="depth_camera_plugin"/>
+        </sensor>
+      </link>
+    </model>
+
+ </world>
+</gazebo>

@@ -1,4 +1,0 @@
-gazebo
-======
-
-Gazebo distributions
